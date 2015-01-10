@@ -1,4 +1,5 @@
 <template name="grid">
+	{{time}}
 	<div class="row">
 		<div class="col-sm-6">
 		  <svg viewBox="0 0 {{gridRealWidth}} {{gridRealHeight}}" width="100%">
@@ -27,6 +28,7 @@
 							</div>
 							<div class="panel-body">
 								<p class="text-danger">Life: {{life}}</p>
+								<p class="text-success">Score: {{score}}</p>
 								<!-- <p>Player {{num}} Life:{{life}} X:{{x}} Y:{{y}} COL:{{cell.col}} ROW:{{cell.row}}</p> -->
 							</div>
 						</div>

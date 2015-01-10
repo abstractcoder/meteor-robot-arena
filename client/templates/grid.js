@@ -1,6 +1,4 @@
-// counter starts at 0
-Session.setDefault("counter", 0);
-
+// Generate map
 this.map = new Map(9, 9);
 
 // Pits
@@ -13,6 +11,7 @@ map.getCell(3,3).type = 'pit';
 map.getCell(6,6).type = 'pit';
 map.getCell(1,6).type = 'pit';
 
+// Repair
 map.getCell(4, 4).type = 'repair';
 
 // Starting areas
@@ -23,31 +22,35 @@ map.getCell(4, 4).type = 'repair';
 
 
 // Intialize robots
-this.robots = []
+this.robots = [];
 
 robots.push(new Robot(1, map.getCell(4,0)));
 robots.push(new Robot(2, map.getCell(8,4)));		
 robots.push(new Robot(3, map.getCell(4,8)));
 robots.push(new Robot(4, map.getCell(0,4)));
 
+this.robotDep = new Deps.Dependency();
+
+// Create victor point
 var startingVPIndex = Math.round(Math.random() * 5);
 var startingVPCoords = VICTORY_POINT_POSITIONS[startingVPIndex];
 var victoryPoint = new VictoryPoint(map.getCell(startingVPCoords[0], startingVPCoords[1]));
 
+// Create game controller
 var controller = new GameController(robots, map);
 controller.executeCommands();
 
 Template.grid.helpers({
-  counter: function () {
-    return Session.get("counter");
-  },
-	
 	strokeWidth: STROKE_WIDTH,
 	gridRealWidth: TILE_WIDTH * COL_COUNT + STROKE_WIDTH/2,
 	gridRealHeight: TILE_HEIGHT * ROW_COUNT + STROKE_WIDTH/2,
 	cells: map.cells,	
-	robots: robots,
-	victoryPoint: victoryPoint
+	robots: function() {
+		robotDep.depend();
+		return controller.robots;
+	},
+	victoryPoint: victoryPoint,
+	time: Session.get('time')
 });
 
 Template.grid.events({
