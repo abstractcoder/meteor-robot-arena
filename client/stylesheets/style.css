@@ -3,8 +3,9 @@
 	stroke: #ccc;
 }
 
-.cell-victory-point {
-	
+.victory-point {
+	fill: purple;
+	stroke: purple;
 }
 
 .cell-repair {
@@ -17,22 +18,26 @@
 	stroke: #888;
 }
 
-.cell-player-start-1 {
+.robot-1 {
+	background: red !important;
 	fill: red;
 	stroke: red;
 }
 
-.cell-player-start-2 {
+.robot-2 {
+	background: blue !important;
 	fill: blue;
 	stroke: blue;
 }
 
-.cell-player-start-3 {
+.robot-3 {
+	background: green !important;
 	fill: green;
 	stroke: green;
 }
 
-.cell-player-start-4 {
+.robot-4 {
+	background: yellow !important;
 	fill: yellow;
 	stroke: yellow;
 }

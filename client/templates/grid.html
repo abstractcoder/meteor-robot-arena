@@ -1,8 +1,41 @@
 <template name="grid">
-  <svg width="{{gridRealWidth}}" height="{{gridRealHeight}}">
-	{{#each cells}}
-		<rect class="{{class_name}}" x="{{x}}" y="{{y}}" width="{{width}}" height="{{height}}" stroke="green" stroke-width="2" />
-	{{/each}}
-    
-  </svg>
+	<div class="row">
+		<div class="col-sm-6">
+		  <svg viewBox="0 0 {{gridRealWidth}} {{gridRealHeight}}" width="100%">
+				{{#each cells}}
+					<rect class="{{class_name}}" x="{{x}}" y="{{y}}" width="{{width}}" height="{{height}}" stroke-width="{{stroke_width}}" />
+				{{/each}}
+	
+				{{#each robots}}
+					<circle class="{{class_name}}" cx="{{x}}" cy="{{y}}" r="{{radius}}" />
+				{{/each}}
+	
+				{{#with victoryPoint}}
+					<polygon class="{{class_name}}" points="{{x1}},{{y1}} {{x2}},{{y2}} {{x3}},{{y3}}" stroke-width="{{stroke_width}}" />
+		    {{/with}}
+		  </svg>
+	
+			
+		</div>
+		<div class="col-sm-6">
+			{{#each robots}}
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="panel panel-default">
+							<div class="panel-heading {{class_name}}">
+								<h3 class="panel-title">Player {{num}}</h3>
+							</div>
+							<div class="panel-body">
+								<p class="text-danger">Life: {{life}}</p>
+								<!-- <p>Player {{num}} Life:{{life}} X:{{x}} Y:{{y}} COL:{{cell.col}} ROW:{{cell.row}}</p> -->
+							</div>
+						</div>
+					</div>
+				</div>
+			{{/each}}
+		</div>
+	</div>
+
 </template>
+
+	
