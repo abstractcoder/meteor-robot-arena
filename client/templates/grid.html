@@ -1,0 +1,8 @@
+<template name="grid">
+  <svg width="{{gridRealWidth}}" height="{{gridRealHeight}}">
+	{{#each cells}}
+		<rect class="{{class_name}}" x="{{x}}" y="{{y}}" width="{{width}}" height="{{height}}" stroke="green" stroke-width="2" />
+	{{/each}}
+    
+  </svg>
+</template>

@@ -1,0 +1,38 @@
+.cell-normal {
+	fill: #aaa;
+	stroke: #ccc;
+}
+
+.cell-victory-point {
+	
+}
+
+.cell-repair {
+	fill: orange;
+	stroke: orange;
+}
+
+.cell-pit {
+	fill: #333;
+	stroke: #888;
+}
+
+.cell-player-start-1 {
+	fill: red;
+	stroke: red;
+}
+
+.cell-player-start-2 {
+	fill: blue;
+	stroke: blue;
+}
+
+.cell-player-start-3 {
+	fill: green;
+	stroke: green;
+}
+
+.cell-player-start-4 {
+	fill: yellow;
+	stroke: yellow;
+}
