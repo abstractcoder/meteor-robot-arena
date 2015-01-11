@@ -46,6 +46,6 @@
 	fill: #333;
 	stroke: #333;
 	text-decoration: line-through;
-	transition: all 1s ease-in-out; 
+	transition: all 0.5s ease-in-out; 
 	transform: opacity(0.0);
 }

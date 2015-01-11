@@ -1,5 +1,4 @@
 <template name="grid">
-	{{time}}
 	<div class="row">
 		<div class="col-sm-6">
 		  <svg viewBox="0 0 {{gridRealWidth}} {{gridRealHeight}}" width="100%">
@@ -18,7 +17,7 @@
 				
 		  </svg>
 	
-			
+		<h2>{{currentCommand}}</h2>
 		</div>
 		<div class="col-sm-6">
 			{{#each robots}}
@@ -37,6 +36,11 @@
 					</div>
 				</div>
 			{{/each}}
+			<div class="text-right">
+				<button class="btn-primary btn-lg btn-success">
+					<i class="glyphicon glyphicon-play"></i> Execute Commands
+				</button>
+			</div>
 		</div>
 	</div>
 

@@ -1,6 +1,9 @@
 // Generate map
 this.map = new Map(9, 9);
 
+// Current command
+this.currentCommand = '';
+
 // Pits
 map.getCell(0,8).type = 'pit';
 map.getCell(0,0).type = 'pit';
@@ -38,7 +41,7 @@ var victoryPoint = new VictoryPoint(map.getCell(startingVPCoords[0], startingVPC
 
 // Create game controller
 var controller = new GameController(robots, map);
-controller.executeCommands();
+
 
 Template.grid.helpers({
 	strokeWidth: STROKE_WIDTH,
@@ -50,12 +53,15 @@ Template.grid.helpers({
 		return controller.robots;
 	},
 	victoryPoint: victoryPoint,
+	currentCommand:  function() {
+		robotDep.depend();
+		return currentCommand;
+	},
 	time: Session.get('time')
 });
 
 Template.grid.events({
   'click button': function () {
-    // increment the counter when button is clicked
-    Session.set("counter", Session.get("counter") + 1);
+		controller.executeCommands();
   }
 });
