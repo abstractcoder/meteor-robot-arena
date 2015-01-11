@@ -41,3 +41,11 @@
 	fill: yellow;
 	stroke: yellow;
 }
+
+.dead {
+	fill: #333;
+	stroke: #333;
+	text-decoration: line-through;
+	transition: all 1s ease-in-out; 
+	transform: opacity(0.0);
+}

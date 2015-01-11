@@ -6,14 +6,16 @@
 				{{#each cells}}
 					<rect class="{{class_name}}" x="{{x}}" y="{{y}}" width="{{width}}" height="{{height}}" stroke-width="{{stroke_width}}" />
 				{{/each}}
+				
+				{{#with victoryPoint}}
+					<polygon class="{{class_name}}" points="{{x1}},{{y1}} {{x2}},{{y2}} {{x3}},{{y3}}" stroke-width="{{stroke_width}}" />
+		    {{/with}}
 	
 				{{#each robots}}
 					<circle class="{{class_name}}" cx="{{x}}" cy="{{y}}" r="{{radius}}" />
 				{{/each}}
 	
-				{{#with victoryPoint}}
-					<polygon class="{{class_name}}" points="{{x1}},{{y1}} {{x2}},{{y2}} {{x3}},{{y3}}" stroke-width="{{stroke_width}}" />
-		    {{/with}}
+				
 		  </svg>
 	
 			
